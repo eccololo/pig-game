@@ -1,0 +1,417 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+body {
+    /* linear-gradient - powoduje rozmycie tła  */
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(../img/back.jpg);
+    /* background-size: cover; powoduje ze tlo jest tak duze jak cala 
+    powierzchnia tla.*/
+    background-size: cover;
+    background-position: center;
+    font-family: Lato;
+    font-weight: 300;
+    /* body jest pozycjonowane wzgledem czegos - relative */ 
+    position: relative;
+    /* 100vh means 100% of the viewport height*/
+    height: 100vh;
+    color: #555;
+}
+
+.wrapper {
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Przesuwa  div.wrapper o 50% w lewo i 50% do góry */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    /* 0px poziomo, 10px pionowo w dół, 50px rozmycia, i kolor czarny */
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: visible;
+    z-index: 99;
+}
+
+.player-0-panel,
+.player-1-panel {
+    width: 50%;
+    float: left;
+    height: 600px;
+    padding: 100px;
+}
+
+
+
+/**********************************************
+*** PLAYERS
+**********************************************/
+
+.player-name {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.player-score {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 100;
+    color: #EB4D4D;
+    margin-bottom: 130px;
+}
+
+.player-info{
+    text-align: center;
+    font-size: 15pt;
+    font-weight: 500;
+    position: absolute;
+    top: 330px;
+    left: 50%;
+    /*Transformuje 50% od obecnej pozycji, czyli wysrodkowuje*/
+    transform: translateX(-50%);
+    display: none;
+}
+
+/* Zmieniamy lekko kolor tla diva aktywnego gracza*/
+.active { background-color: #f7f7f7; }
+.active .player-name { font-weight: 300; }
+
+.active .player-name::after {
+    /*Dodajemy kolorowa kropke kolo nazwy aktywnego gracza*/
+    content: "\2022";
+    font-size: 47px;
+    position: absolute;
+    color: #EB4D4D;
+    top: -7px;
+    right: 10px;
+    
+}
+
+.player-current-box {
+    background-color: #EB4D4D;
+    color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+}
+
+.player-current-label {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #222;
+}
+
+.player-current-score {
+    font-size: 30px;
+}
+
+button.button {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    /*Transformuje 50% od obecnej pozycji, czyli wysrodkowuje*/
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    /*Zmienia płynnie pewne wartości css */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover { font-weight: 600; }
+button:hover i { margin-right: 20px; }
+
+/*Gdyby było po kliknięciu był by niebieski border*/
+button:focus {
+    outline: none;
+}
+
+i {
+    color: #EB4D4D;
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 32px;
+    line-height: 1;
+    /*Wysrodkowanie pionowe*/
+    vertical-align: text-top;
+    margin-top: -4px;
+    /* Plynnie oddala od siebie napis i obrazek */
+    transition: margin 0.3s;
+}
+
+.btn-new { top: 45px;}
+.btn-roll { top: 403px;}
+.btn-hold { top: 467px;}
+
+.dice , .dice1 {
+    position: absolute;
+    top: 178px;
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+    display: none;
+}
+
+.dice1{
+    left: 56%;
+    transform: translateX(-50%);
+}
+
+.dice{
+    left: 44%;
+    transform: translateX(-50%);
+}
+
+.winner { background-color: #f7f7f7; }
+.winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+.border{ border: 1px solid black; }
+
+/* Max Score classes */
+.max-score-div{
+    text-align: center;
+    position: absolute;
+    width: 168px;
+    left: 50%;
+    /*Transformuje 50% od obecnej pozycji, czyli wysrodkowuje*/
+    transform: translateX(-45%);
+    color: #555;
+    font-family: Lato;
+    text-transform: uppercase;
+    font-weight: 300;  
+    top: 520px;
+    display: flex;
+}
+
+.max-score-div span{
+    font-size: 21px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 7px;
+}
+
+.max-score-div span:hover{
+    font-weight: 600;
+}
+
+.input-max-score{
+    width: 45px;
+    border: none;
+    font-size: 15pt;
+    height: 40px;
+    padding: 5px;
+    color: #FFF;
+    background-color: #EB4D4D;
+    margin-left: 3px;
+    border-radius: 0 10px 10px 0;
+}
+
+.input-max-score:focus {
+    outline: none;
+}
+
+/* Game Info Classes */
+.game-rules{
+    width: 650px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Przesuwa  div.wrapper o 50% w lewo i 50% do góry */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    /* 0px poziomo, 10px pionowo w dół, 50px rozmycia, i kolor czarny */
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: visible;
+    text-align: left;
+    z-index: 101;
+    display: none;
+}
+
+.game-rules ol{
+    list-style-type: upper-roman;
+    margin: 0;
+    padding: 0;
+}
+
+.game-rules h3{
+    text-align: center;
+    padding: 10px;
+}
+
+.game-rules h3 span{
+    color: blue;
+}
+
+.game-rules ol li{
+    padding: 10px;
+    margin-left: 40px;
+    font-weight: 600;
+    font-size: 11pt;
+}
+
+.close{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+    -webkit-transform: none; /* Safari and Chrome */
+    -moz-transform: none; /* Firefox */
+    -ms-transform: none; /* IE 9 */
+    -o-transform: none; /* Opera */
+    transform: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    color: #EB4D4D;
+}
+
+.btn-game-info{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+    -webkit-transform: none; /* Safari and Chrome */
+    -moz-transform: none; /* Firefox */
+    -ms-transform: none; /* IE 9 */
+    -o-transform: none; /* Opera */
+    transform: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    color: #EB4D4D; 
+}
+
+/*Overlay klas */
+.overlay{
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    position: absolute;
+    display: none;
+}
+
+/*Question chance klases */
+.qanda-div, .stats-div{
+    width: 600px;
+    height: 230px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Przesuwa  div.wrapper o 50% w lewo i 50% do góry */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    /* 0px poziomo, 10px pionowo w dół, 50px rozmycia, i kolor czarny */
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: visible;
+    text-align: left;
+    z-index: 102;
+    text-align: center;
+    display: none;
+}
+
+.stats-div{
+    height: 300px;
+    display: none;
+    padding: 5px;
+    width: 500px;
+    
+}
+
+.stats-flex{
+    display: flex;
+}
+
+.stats-flex span{
+    font-weight: 800;
+    font-size: 11pt;
+}
+.stats-div h1{
+    text-align: center;
+}
+
+.stats-div p{
+    font-size: 11pt;
+    margin: 7px 0 7px 30px;
+    text-align: left;
+    padding: 10px 5px 5px 10px;
+}
+
+.stats-div h3{
+    text-align: left;
+    margin-left: 25px;
+    margin-top: 17px;
+}
+
+.stats-player-1-div{
+    margin-left: 15px;
+}
+
+.qanda-div h1{
+   text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+    font-size: 16pt;
+}
+
+.qanda-div a{
+    padding: 10px;
+    margin: 25px 10px 10px 0;
+}
+
+.time-counter-outer{
+    border-radius: 10px;
+    border: 2px solid #EB4D4D;
+    width: 500px;
+    height: 20px;
+    margin: 20px 15% 5px 7%;
+}
+
+.time-counter-inner{
+    width: 0;
+    background-color: #EB4D4D;
+    height: 18px;
+    border-radius: 10px;
+}
+
+/* Q&A DIV */
+
+#answer_true, #answer_false {
+    cursor: pointer;
+}
