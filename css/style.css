@@ -8,12 +8,6 @@
     box-sizing: border-box;
     
 }
-<<<<<<< HEAD
-
-
-body {
-    /* linear-gradient - powoduje rozmycie tła  */
-=======
 /* Po co jest ta klasa ?
 
 .clearfix::after {
@@ -25,7 +19,6 @@ body {
 
 body {
     /* linear-gradient - powoduje rozmycie tÃÂa  */
->>>>>>> Update of app, adding few things
     background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(../img/back.jpg);
     /* background-size: cover; powoduje ze tlo jest tak duze jak cala 
     powierzchnia tla.*/
@@ -45,17 +38,10 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-<<<<<<< HEAD
-    /* Przesuwa  div.wrapper o 50% w lewo i 50% do góry */
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    /* 0px poziomo, 10px pionowo w dół, 50px rozmycia, i kolor czarny */
-=======
     /* Przesuwa  div.wrapper o 50% w lewo i 50% do gÃÂ³ry */
     transform: translate(-50%, -50%);
     background-color: #fff;
     /* 0px poziomo, 10px pionowo w dÃÂ³ÃÂ, 50px rozmycia, i kolor czarny */
->>>>>>> Update of app, adding few things
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: visible;
     z-index: 99;
@@ -155,22 +141,14 @@ button.button {
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 300;
-<<<<<<< HEAD
-    /*Zmienia płynnie pewne wartości css */
-=======
     /*Zmienia pÃÂynnie pewne wartoÃÂci css */
->>>>>>> Update of app, adding few things
     transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover { font-weight: 600; }
 button:hover i { margin-right: 20px; }
 
-<<<<<<< HEAD
-/*Gdyby było po kliknięciu był by niebieski border*/
-=======
 /*Gdyby byÃÂo po klikniÃÂciu byÃÂ by niebieski border*/
->>>>>>> Update of app, adding few things
 button:focus {
     outline: none;
 }
@@ -261,16 +239,6 @@ i {
 /* Game Info Classes */
 .game-rules{
     width: 650px;
-<<<<<<< HEAD
-    height: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* Przesuwa  div.wrapper o 50% w lewo i 50% do góry */
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    /* 0px poziomo, 10px pionowo w dół, 50px rozmycia, i kolor czarny */
-=======
     height: 350px;
     position: absolute;
     top: 50%;
@@ -279,7 +247,6 @@ i {
     transform: translate(-50%, -50%);
     background-color: #fff;
     /* 0px poziomo, 10px pionowo w dÃÂ³ÃÂ, 50px rozmycia, i kolor czarny */
->>>>>>> Update of app, adding few things
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: visible;
     text-align: left;
@@ -374,17 +341,10 @@ i {
     position: absolute;
     top: 50%;
     left: 50%;
-<<<<<<< HEAD
-    /* Przesuwa  div.wrapper o 50% w lewo i 50% do góry */
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    /* 0px poziomo, 10px pionowo w dół, 50px rozmycia, i kolor czarny */
-=======
     /* Przesuwa  div.wrapper o 50% w lewo i 50% do gÃÂ³ry */
     transform: translate(-50%, -50%);
     background-color: #fff;
     /* 0px poziomo, 10px pionowo w dÃÂ³ÃÂ, 50px rozmycia, i kolor czarny */
->>>>>>> Update of app, adding few things
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: visible;
     text-align: left;
